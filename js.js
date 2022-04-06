@@ -331,6 +331,12 @@ function hexa_Binario(numero, base) {
     return final;
 }
 
+function hexa_Octal(numero, base) {
+    binarioOctal(hexa_Binario(numero, base));
+    //0110 1111 0101 
+    //resultado 3365
+}
+
 function hexa_Decimal(numero, base) {
     let inicio = -1;
     let end = numero.length;
