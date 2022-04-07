@@ -1,10 +1,8 @@
 function datos() {
-    let numero = 15;
-    let decimal;
-    let octal;
-    let binario;
-    let ecxadecimal;
-    let base;
+    let numero = document.getElementById('numIngresado');
+    let baseEntrada = document.getElementById('bases');
+    let baseSalida = document.getElementById('basesResultado');
+    let resultado = document.getElementById('numResultado');
 }
 
 function dividiendo(numero, base) {
