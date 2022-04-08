@@ -17,7 +17,7 @@
     </div>
     <div class="divEntrada">
         <p> Ingrese su número.</p>
-        <input type="text" class="input" id="numIngresado">
+        <input type="text" class="input" id="numIngresado" value="11001" onkeyup="javascript:this.value=this.value.toUpperCase();">
         <br>
         <select name="bases" id="bases" class="select">
             <option value="0">ELIJA LA BASE</option>
@@ -35,16 +35,14 @@
             <option value="3">DECIMAL</option>
             <option value="4">HEXADECIMAL</option>
         </select>
-        <button class="btn" id="btnConvert">Convetir</button>
+        <button class="btn" id="btnConvert" onclick=operaciones()>Convetir</button>
         <button class="btn" id="btnClear">Limpiar</button>
     </div>
     <div class="divSalida">
         <label>RESULTADO</label>
         <input type="text" class="input salida" id="numResultado">
     </div>
-    <script>
-        hexa_Octal('6F5', 16);
-    </script>
+
 
 </body>
 

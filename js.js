@@ -1,11 +1,86 @@
-function datos() {
-    let numero = document.getElementById('numIngresado');
-    let baseEntrada = document.getElementById('bases');
-    let baseSalida = document.getElementById('basesResultado');
-    let resultado = document.getElementById('numResultado');
+let resultado = document.getElementById('numResultado');
+let btnConvertir = document.getElementById('btnConvert');
+let btnBorrar = document.getElementById('btnClear');
+
+
+
+function operaciones() {
+    let opcionBase;
+    let baseInicial;
+    let baseFinal;
+    let numero = document.getElementById('numIngresado').value;
+    console.log(typeof numero)
+    let resultadoBase;
+    baseInicial = (document.getElementById('bases').value);
+    baseFinal = (document.getElementById('basesResultado').value);
+    // console.log(baseInicial, "-", baseFinal, "--", numero);
+
+    let nameMetodo = baseInicial.concat(baseFinal);
+    //nameMetodo = nameMetodo.concat(baseFinal);
+    // nameMetodo = nameMetodo.concat("()");
+    //nameMetodo = "binario_decimal()";
+    console.log(nameMetodo, "name   ", numero, "numero")
+    selectFunciones(nameMetodo, numero)
+
+
+
 }
 
-function dividiendo(numero, base) {
+function binario_decimal() {
+    console.log("llegue");
+}
+
+function selectFunciones(opcion, numero) {
+    let opcionBase;
+    switch (opcion) {
+        case "0":
+            prompt("Elija una de las bases ");
+            break;
+        case "12":
+            binarioOctal(numero)
+            break;
+        case "13":
+            binarioDecimal(numero)
+            break;
+        case "14":
+            binarioHexa(numero)
+
+            break;
+        case "21":
+            octalBinario(numero)
+            break;
+        case "23":
+            octalDecimal(numero)
+            break;
+        case "24":
+            octalHexadecimal(numero)
+            break;
+        case "31":
+            decimalAx(parseInt(numero), 2)
+            break;
+        case "32":
+            decimalAx(parseInt(numero), 8)
+            break;
+        case "34":
+            decimalAx(parseInt(numero), 16)
+
+            break;
+        case "41":
+            hexaBinario(numero)
+            break;
+        case "42":
+            hexaOctal(numero)
+            break;
+        case "43":
+            hexaDecimal(numero)
+            break;
+
+    }
+    //return opcionBase;
+}
+
+
+function decimalAx(numero, base) {
     let ultimo;
     let binario = " ";
     do {
@@ -50,10 +125,9 @@ function dividiendo(numero, base) {
 
 }
 
-function binarioDecimal(numero, base) {
+function binarioDecimal(numero) {
     let abajo = 2;
-    let ultimo = 0;
-    let final = " ";
+    let nBinario = numero;
     let sumador = 0;
     let hasta = numero.toString().length;
     for (let i = 0; i < hasta; i++) {
@@ -62,79 +136,79 @@ function binarioDecimal(numero, base) {
         numero = Math.floor(numero / 10);
         sumador = sumador + parseInt(ultimo);
     }
-    console.log("El numer decimal es " + sumador);
+    console.log("El número Binario #" + nBinario + " pasado a Decimal es ==>" + sumador);
 }
 
-function binarioOctal(numero, base) {
-    let abajo = 2;
+function binarioOctal(numero) {
+    numero = numero.trim();
+    let nBinario = numero;
+    numero = relleno(numero, 3)
+    let a = -3;
+    let b = numero.length;
     let ultimo = 0;
     let final = " ";
-    let nBinario = numero;
-    let hasta = Math.floor(numero.toString().length / 3);
+    let hasta = Math.ceil(numero.length / 3)
     for (let i = 0; i < hasta; i++) {
-        let ultimo = (numero % 1000);
+        ultimo = sacarCaracteres(numero, a, b);
         switch (ultimo) {
-            case 000:
+            case "000":
                 ultimo = 0;
                 break;
-            case 001:
+            case "001":
                 ultimo = 1;
                 break;
-            case 010:
+            case "010":
                 ultimo = 2;
                 break;
-            case 011:
+            case "011":
                 ultimo = 3;
                 break;
-            case 100:
+            case "100":
                 ultimo = 4;
                 break;
-            case 101:
+            case "101":
                 ultimo = 5;
                 break;
-            case 110:
+            case "110":
                 ultimo = 6;
                 break;
-            case 111:
+            case "111":
                 ultimo = 7;
                 break;
 
         }
-        numero = Math.floor(numero / 1000);
         final = ultimo + final;
+        a += -3;
+        b += -3;
     }
-    console.log("El numer Binario #" + nBinario + " pasado a Octal es ==>" + final);
+    console.log("El número Binario #" + nBinario + " pasado a Octal es ==>" + final);
 
 }
 
-function binarioHexa(numero, base) {
-    numero = numero.trim();
-
-    if (!(numero.toString().length % 4 == 0)) {
-        let relleno = 4 - (numero.toString().length % 4);
+function relleno(numero, cant) {
+    if (!(numero.toString().length % cant == 0)) {
+        let relleno = cant - (numero.toString().length % cant);
         for (let i = 0; i < relleno; i++) {
             let agregado = "0";
             numero = agregado.concat(numero);
-
         }
-
     }
+    return numero
+}
 
+function binarioHexa(numero) {
+    numero = numero.trim();
+    let nBinario = numero;
+    numero = relleno(numero, 4)
     let prueba;
-
-
     let abajo = 2;
     let ultimo = 0;
     let final = " ";
-    let nBinario = numero;
     let a = -4;
     let b = numero.toString().length;
-    let hasta = (Math.ceil(numero.toString().length / 4));
+    let hasta = (Math.ceil(numero.length / 4));
     for (let i = 0; i < hasta; i++) {
-
-        prueba = numero.toString().slice(a, b);
-
-        console.log(prueba);
+        prueba = sacarCaracteres(numero, a, b);
         switch (prueba.toString()) {
             case "0000":
                 ultimo = 0;
@@ -189,17 +263,19 @@ function binarioHexa(numero, base) {
         a = (a - 4);
         b = b - 4;
     }
-    //0000 1111 1101  0 1111 1101
-    console.log("El numero Binario #" + nBinario + " pasado a Hexadecimal es ==>" + final);
+    console.log("El número Binario #" + nBinario + " pasado a Hexadecimal es ==> " + final);
+    return final;
 }
 
-function octalBinario(numero, base) {
+function sacarCaracteres(numero, cantidad, end) {
+    return numero.slice(cantidad, end);
+
+}
+
+function octalBinario(numero) {
     let abajo = 2;
-    let ultimo = 0;
     let final = " ";
-    let nBinario = numero;
-    //154
-    // let hasta = Math.floor(numero.toString().length / 3);
+    let nEntrada = numero;
     let hasta = numero.toString().length;
     for (let i = 0; i < hasta; i++) {
         let ultimo = (numero % 10);
@@ -233,15 +309,13 @@ function octalBinario(numero, base) {
         numero = Math.floor(numero / 10);
         final = ultimo + final;
     }
-    console.log("El numero Octal #" + nBinario + " pasado a Binario es ==>" + final);
+    console.log("El número Octal #" + nEntrada + " pasado a Binario es ==>" + final);
     return final;
 }
 
-function octal_Decimal(numero, base) {
-    //412
+function octalDecimal(numero) {
     let abajo = 8;
-    let ultimo = 0;
-    let final = " ";
+    let nEntrada = numero;
     let sumador = 0;
     let hasta = numero.toString().length;
     for (let i = 0; i < hasta; i++) {
@@ -250,16 +324,15 @@ function octal_Decimal(numero, base) {
         numero = Math.floor(numero / 10);
         sumador = sumador + parseInt(ultimo);
     }
-    console.log("El numer decimal es " + sumador);
-
+    console.log("El número Octal #" + nEntrada + " pasado a Decimal es ==>" + sumador);
 }
 
-function octal_Hexadecimal(numero, base) {
-    binarioHexa(octalBinario(numero, 4));
-    //0 1111 1101 
+function octalHexadecimal(numero) {
+    let final = binarioHexa(octalBinario(numero));
+    console.log("El número Octal #" + numero + " pasado a Hexadecimal es ==> " + final);
 }
 
-function hexa_Binario(numero, base) {
+function hexaBinario(numero) {
     let inicio = -1;
     let end = numero.length;
     let ultimo = 0;
@@ -325,17 +398,23 @@ function hexa_Binario(numero, base) {
         end--;
         final = ultimo + final;
     }
+    final = parseInt(final);
+    final = final.toString();
     console.log("El número Hexadecimal #" + nBinario + " pasado a Binario es ==>" + final);
     return final;
-}
 
-function hexa_Octal(numero, base) {
-    binarioOctal(hexa_Binario(numero, base));
+}
+10010001110101112
+10010001110101112
+
+function hexaOctal(numero) {
+    console.log(typeof numero)
+    binarioOctal(hexaBinario(numero));
     //0110 1111 0101 
     //resultado 3365
 }
 
-function hexa_Decimal(numero, base) {
+function hexaDecimal(numero) {
     let inicio = -1;
     let end = numero.length;
     let abajo = 16;
@@ -378,6 +457,6 @@ function hexa_Decimal(numero, base) {
         end--;
         sumador = sumador + parseInt(ultimo);
     }
-    console.log("El número Hexadecimal #" + nBinario + " pasado a Binario es ==>" + sumador);
+    console.log("El número Hexadecimal #" + nBinario + " pasado a Decimal es ==>" + sumador);
     return final;
 }
