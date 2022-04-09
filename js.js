@@ -55,12 +55,9 @@ function selectFunciones(opcion, numero) {
             resultado = hexaDecimal(numero)
             break;
     }
-    console.log(opcion)
     if (opcion == 11 || opcion == 22 || opcion == 33 || opcion == 44) {
         resultado = "Las Bases son las mismas";
-
     }
-
     document.getElementById(('numResultado')).value = resultado;
 }
 
@@ -84,8 +81,8 @@ function decimalAx(numero, base) {
     let ultimo;
     let binario = "";
     let sigDividendo;
-    let resto;
-    let resultado;
+    let nInicial = numero;
+    let textoSalida;
     do {
         sigDividendo = Math.floor(numero / base);
         ultimo = numero % base;
@@ -122,7 +119,18 @@ function decimalAx(numero, base) {
         binario = ultimo + binario;
         // console.log(binario, " es binario")
     } while (numero > 0);
-    console.log(" el numero en binario es ==> " + binario);
+    switch (base) {
+        case 2:
+            textoSalida = "Binario";
+            break;
+        case 8:
+            textoSalida = "Octal";
+            break;
+        case 16:
+            textoSalida = "Hexadecimal";
+            break;
+    }
+    console.log(" El número Decimal #" + nInicial + " pasado a " + textoSalida + " es ==> " + binario);
     // document.getElementById('numResultado').value = binario
 
     return binario;
