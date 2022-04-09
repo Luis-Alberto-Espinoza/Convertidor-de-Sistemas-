@@ -11,38 +11,41 @@
     <script src="js.js"></script>
 </head>
 
-<body>
-    <div class="titulo">
-        <H1>CONVERTIDOR DE BASES</H1>
-    </div>
-    <div class="divEntrada">
-        <p> Ingrese su número.</p>
-        <input type="text" class="input" id="numIngresado" value="11001" onkeyup="javascript:this.value=this.value.toUpperCase();">
-        <br>
-        <select name="bases" id="bases" class="select">
-            <option value="0">ELIJA LA BASE</option>
-            <option value="1">BINARIO</option>
-            <option value="2">OCTAL</option>
-            <option value="3">DECIMAL</option>
-            <option value="4">HEXADECIMAL</option>
-        </select>
-        <p>A que sistema</p>
-        <p>lo quiere Convertir.</p>
-        <select name="basesResultante" id="basesResultado" class="select">
-            <option value="0">ELIJA LA BASE</option>
-            <option value="1">BINARIO</option>
-            <option value="2">OCTAL</option>
-            <option value="3">DECIMAL</option>
-            <option value="4">HEXADECIMAL</option>
-        </select>
-        <button class="btn" id="btnConvert" onclick=operaciones()>Convetir</button>
-        <button class="btn" id="btnClear">Limpiar</button>
-    </div>
-    <div class="divSalida">
-        <label>RESULTADO</label>
-        <input type="text" class="input salida" id="numResultado">
-    </div>
+<body id="lienzo">
+    <form id="formulario">
 
+
+        <div class="titulo">
+            <H1>CONVERTIDOR DE BASES</H1>
+        </div>
+        <div class="divEntrada">
+            <p> Ingrese su número.</p>
+            <input type="text" class="input" id="numIngresado" value="11001" onkeyup="javascript:this.value=this.value.toUpperCase();">
+            <br>
+            <select name="bases" id="bases" class="select">
+            <option value="0">ELIJA LA BASE</option>
+            <option value="1">BINARIO</option>
+            <option value="2">OCTAL</option>
+            <option value="3">DECIMAL</option>
+            <option value="4">HEXADECIMAL</option>
+        </select>
+            <p>A que sistema</p>
+            <p>lo quiere Convertir.</p>
+            <select name="basesResultante" id="basesResultado" class="select">
+            <option value="0">ELIJA LA BASE</option>
+            <option value="1">BINARIO</option>
+            <option value="2">OCTAL</option>
+            <option value="3">DECIMAL</option>
+            <option value="4">HEXADECIMAL</option>
+        </select>
+            <button class="btn" id="btnConvert" onclick=operaciones()>Convertir</button>
+            <button class="btn" id="btnClear" onclick="limpiar()">Limpiar</button>
+        </div>
+        <div class="divSalida">
+            <label>RESULTADO</label>
+            <input type="text" class="input salida" id="numResultado">
+        </div>
+    </form>
 
 </body>
 

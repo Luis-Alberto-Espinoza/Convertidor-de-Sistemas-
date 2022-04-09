@@ -1,8 +1,5 @@
-var resultado = document.getElementById(('numResultado'));
-let btnConvertir = document.getElementById('btnConvert');
-let btnBorrar = document.getElementById('btnClear');
-
 function operaciones() {
+    event.preventDefault();
     let opcionBase;
     let baseInicial;
     let baseFinal;
@@ -453,4 +450,8 @@ function hexaDecimal(numero) {
     }
     console.log("El número Hexadecimal #" + nBinario + " pasado a Decimal es ==>" + sumador);
     return sumador;
+}
+
+function limpiar() {
+    document.getElementById("formulario").reset();
 }
