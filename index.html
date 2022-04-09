@@ -13,35 +13,44 @@
 
 <body id="lienzo">
     <form id="formulario">
-
-
         <div class="titulo">
             <H1>CONVERTIDOR DE BASES</H1>
         </div>
-        <div class="divEntrada">
-            <p> Ingrese su número.</p>
-            <input type="text" class="input" id="numIngresado" onkeyup="javascript:this.value=this.value.toUpperCase();">
-            <br>
-            <select name="bases" id="bases" class="select">
-            <option value="0">ELIJA LA BASE</option>
-            <option value="1">BINARIO</option>
-            <option value="2">OCTAL</option>
-            <option value="3">DECIMAL</option>
-            <option value="4">HEXADECIMAL</option>
-        </select>
-            <p>A que sistema</p>
-            <p>lo quiere Convertir.</p>
-            <select name="basesResultante" id="basesResultado" class="select">
-            <option value="0">ELIJA LA BASE</option>
-            <option value="1">BINARIO</option>
-            <option value="2">OCTAL</option>
-            <option value="3">DECIMAL</option>
-            <option value="4">HEXADECIMAL</option>
-        </select>
-            <button class="btn" id="btnConvert" onclick=operaciones()>Convertir</button>
-            <button class="btn" id="btnClear" onclick="limpiar()">Limpiar</button>
+        <div class="divEntrada" id="divEmtrada">
+            <p> Base de su número.</p>
+            <select name="bases" id="bases" class="select" onchange="ocultar(this)">
+                <option value="0">ELIJA LA BASE</option>
+                <option value="1">BINARIO</option>
+                <option value="2">OCTAL</option>
+                <option value="3">DECIMAL</option>
+                <option value="4">HEXADECIMAL</option>
+            </select>
+            <div id="ocultarIngreso">
+                <p> Ingrese su número.</p>
+                <input type="text" class="input" id="numIngresado" onkeyup="javascript:this.value=this.value.toUpperCase();">
+            </div>
+            <div id="divImagen">
+                <img src="ico\tablaconversion.jpg" alt="Tabla de conversión de bases numéricas">
+            </div>
+
+            <div id="ocultarBDestino">
+                <p>A que sistema</p>
+                <p>lo quiere Convertir.</p>
+                <select name="basesResultante" id="basesResultado" class="select" onchange="ocultar2(this)">
+                    <option value="0">ELIJA LA BASE</option>
+                    <option value="1">BINARIO</option>
+                    <option value="2">OCTAL</option>
+                    <option value="3">DECIMAL</option>
+                    <option value="4">HEXADECIMAL</option>
+                </select>
+            </div>
+
+            <div id="ocultarBtn">
+                <button class="btn" id="btnConvert" onclick=operaciones()>Convertir</button>
+                <button class="btn" id="btnClear" onclick="limpiar()">Limpiar</button>
+            </div>
         </div>
-        <div class="divSalida">
+        <div id="divSalida" class="divSalida">
             <label>RESULTADO</label>
             <input type="text" class="input salida" id="numResultado" disabled>
         </div>
@@ -53,10 +62,10 @@
         <img src="ico\gmail.png" alt="Correo electronico" class="iconos">
     </a>
     <a href="https://www.linkedin.com/in/luis-alberto-espinoza/?subject=subject text" target=_blank ">
-        <img src="ico\linkedin.png " alt="Linkedin " class="iconos ">
+        <img src=" ico\linkedin.png " alt=" Linkedin " class=" iconos ">
     </a>
-    <a href="https://github.com/Luis-Alberto-Espinoza " target="_blank ">
-        <img src="ico\logotipo-de-github.png " alt="git " class="iconos ">
+    <a href=" https://github.com/Luis-Alberto-Espinoza " target=" _blank ">
+        <img src=" ico\logotipo-de-github.png " alt=" git " class=" iconos ">
     </a>
    
 </footer>

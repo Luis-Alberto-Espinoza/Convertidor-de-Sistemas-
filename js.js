@@ -7,7 +7,8 @@ function operaciones() {
     baseInicial = (document.getElementById('bases').value);
     baseFinal = (document.getElementById('basesResultado').value);
     let nameMetodo = baseInicial.concat(baseFinal);
-    selectFunciones(nameMetodo, numero)
+    selectFunciones(nameMetodo, numero);
+    document.getElementById('divSalida').style.display = 'block';
 }
 
 function selectFunciones(opcion, numero) {
@@ -454,4 +455,24 @@ function hexaDecimal(numero) {
 
 function limpiar() {
     document.getElementById("formulario").reset();
+}
+
+function ocultar() {
+    let select1 = document.getElementById('bases');
+    let base = select1.value;
+    console.log("llegue");
+
+    document.getElementById('ocultarIngreso').style.display = 'block';
+    document.getElementById('ocultarBDestino').style.display = 'block';
+    document.getElementById('divImagen').style.display = 'none';
+    // const numero = document.getElementById('ocultarIngreso');
+    // select1.addEventListener('change', (event) => {
+    // });
+}
+
+function ocultar2() {
+    let select2 = document.getElementById('basesResultado');
+    let base = select2.value;
+    document.getElementById('ocultarBtn').style.display = 'block';
+
 }

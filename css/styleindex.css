@@ -3,6 +3,13 @@
     margin: 0px;
 }
 
+#ocultarIngreso,
+#ocultarBtn,
+#ocultarBDestino,
+#divSalida {
+    display: none;
+}
+
 .titulo {
     text-align: center;
     padding: 15px;
@@ -127,4 +134,10 @@
 .footer {
     display: flex;
     justify-content: center;
+}
+
+#divImagen {}
+
+.ocultarIngreso {
+    width: 100%;
 }
