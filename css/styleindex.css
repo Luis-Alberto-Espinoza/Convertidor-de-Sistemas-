@@ -112,8 +112,19 @@
     background-color: #f6f6f6;
     margin: 8px 0;
     display: inline-block;
+    font-size: 28px;
 }
 
 .salida {
-    font-size: 32px;
+    font-size: 28px;
+}
+
+.iconos {
+    height: 35px;
+    padding: 15px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
 }
