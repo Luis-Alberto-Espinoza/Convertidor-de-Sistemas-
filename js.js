@@ -11,6 +11,36 @@ function operaciones() {
     document.getElementById('divSalida').style.display = 'block';
 }
 
+function validarIngreso(string) {
+    let out = '';
+    let caja = document.getElementById('numIngresado');
+    baseInicial = (document.getElementById('bases').value);
+    let filtro;
+    string = string.toUpperCase().replace(/ /g, "");
+    let tamanio = caja.value.length;
+    tamanio = tamanio * 16;
+    caja.style.width = tamanio + "px";
+    switch (baseInicial) {
+        case "1":
+            filtro = '01'; //Caracteres validos sistema binario
+            break;
+        case "2":
+            filtro = ' 01234567'; //Caracteres validos sistema octal
+            break;
+        case "3":
+            filtro = '0123456789'; //Caracteres validos sistema decimal
+            break;
+        case "4":
+            filtro = ' ABCDEF1234567890'; //Caracteres validos sistema hexadecimal
+            break;
+    }
+
+    for (let i = 0; i < string.length; i++)
+        if (filtro.indexOf(string.charAt(i)) != -1)
+            out += string.charAt(i);
+    return out;
+}
+
 function selectFunciones(opcion, numero) {
     let resultado;
     switch (opcion) {
@@ -56,7 +86,11 @@ function selectFunciones(opcion, numero) {
     if (opcion == 11 || opcion == 22 || opcion == 33 || opcion == 44) {
         resultado = "Las Bases son las mismas";
     }
-    document.getElementById(('numResultado')).value = resultado;
+    let tamanio = resultado.length;
+    tamanio = tamanio * 16;
+    let cajaResultado = document.getElementById(('numResultado'));
+    cajaResultado.style.width = tamanio + "px";
+    cajaResultado.value = resultado;
 }
 
 function relleno(numero, cant) {
@@ -438,13 +472,9 @@ function hexaDecimal(numero) {
             case "F":
                 ultimo = "15";
                 break;
-
-
-
         }
 
         ultimo = ultimo * Math.pow(abajo, i);
-
         inicio--;
         end--;
         sumador = sumador + parseInt(ultimo);
@@ -460,14 +490,11 @@ function limpiar() {
 function ocultar() {
     let select1 = document.getElementById('bases');
     let base = select1.value;
-    console.log("llegue");
 
     document.getElementById('ocultarIngreso').style.display = 'block';
     document.getElementById('ocultarBDestino').style.display = 'block';
     document.getElementById('divImagen').style.display = 'none';
-    // const numero = document.getElementById('ocultarIngreso');
-    // select1.addEventListener('change', (event) => {
-    // });
+
 }
 
 function ocultar2() {

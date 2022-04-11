@@ -27,7 +27,7 @@
             </select>
             <div id="ocultarIngreso">
                 <p> Ingrese su número.</p>
-                <input type="text" class="input" id="numIngresado" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                <input type="text" class="input" id="numIngresado" size="5" onkeyup="this.value= validarIngreso(this.value);">
             </div>
             <div id="divImagen">
                 <img src="ico\tablaconversion.jpg" alt="Tabla de conversión de bases numéricas">

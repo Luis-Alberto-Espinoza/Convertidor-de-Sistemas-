@@ -120,6 +120,7 @@
     margin: 8px 0;
     display: inline-block;
     font-size: 28px;
+    width: 8em;
 }
 
 .salida {
@@ -135,8 +136,6 @@
     display: flex;
     justify-content: center;
 }
-
-#divImagen {}
 
 .ocultarIngreso {
     width: 100%;
