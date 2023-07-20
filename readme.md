@@ -1,6 +1,6 @@
 # Convertidor de Bases
 
-![Convertidor de Bases](url_to_image)
+![Convertidor de Bases](./capturas/inicio.png)
 
 ## Descripción
 
@@ -20,16 +20,24 @@ Este proyecto es un convertidor de bases numéricas implementado con HTML, JavaS
 
 ## Cómo Utilizar
 
-1. Accede al convertidor de bases desde el siguiente enlace: [Convertidor de Bases](url_to_project).
+1. Accede al convertidor de bases desde el siguiente enlace:[Convertidor de Bases](https://luis-alberto-espinoza.github.io/Convertidor-de-Sistemas-/)
 2. Selecciona la base de tu número en el primer menú desplegable.
 3. Ingresa el número que deseas convertir en el cuadro de texto.
 4. Selecciona la base a la que deseas convertir el número en el segundo menú desplegable.
 5. Haz clic en el botón "Convertir" para obtener el resultado.
 6. Si deseas realizar otra conversión, haz clic en el botón "Limpiar" para borrar los datos.
 
-## Capturas de Pantalla
+## Futuras Mejoras
 
-_Aquí puedes agregar capturas de pantalla para mostrar cómo se ve y funciona el convertidor de bases._
+1. Modularización
+2. Abstracción
+3. Comentarios y Documentación
+4. Separación entre lógica y presentación 
+5. Mejorar la capa de estilos en general
+6. Validaciones de entrada
+7. Manejo de errores 
+8. Implementar el desacoplamiento entre funciones 
+   
 
 ## Contribuciones
 
@@ -41,7 +49,7 @@ Si tienes alguna pregunta o sugerencia sobre el proyecto, no dudes en contactarm
 
 ## Autor
 
-- Nombre: [Tu Nombre](url_to_github_profile)
-- Correo electrónico: [tu_correo@gmail.com](mailto:tu_correo@gmail.com)
+- Nombre: Luis Alberto Espinoza.
+- Correo electrónico: espinoza.luis.alberto1981@gmail.com
 
 ¡Gracias por utilizar el Convertidor de Bases y espero que sea útil para tus necesidades de conversión numérica!
