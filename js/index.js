@@ -1,7 +1,17 @@
+function reiniciarSelects() {
+    document.getElementById('bases').selectedIndex = 0;
+    document.getElementById('basesResultado').selectedIndex = 0;
+}
+
+// Evento "load" que se activa cuando se carga la página
+window.addEventListener('load', function () {
+    reiniciarSelects(); // Llama a la función para reiniciar los elementos <select> al cargar la página
+});
+let baseInicial;
 function operaciones() {
     event.preventDefault();
     let opcionBase;
-    let baseInicial;
+    
     let baseFinal;
     let numero = document.getElementById('numIngresado').value;
     baseInicial = (document.getElementById('bases').value);
@@ -71,7 +81,6 @@ function selectFunciones(opcion, numero) {
             break;
         case "34":
             resultado = decimalAx(parseInt(numero), 16)
-
             break;
         case "41":
             resultado = hexaBinario(numero)
@@ -365,19 +374,21 @@ function octalHexadecimal(numero) {
 }
 
 function hexaBinario(numero) {
-    let inicio = -1;
+    let inicio = 0;
     let end = numero.length;
-    let ultimo = 0;
-    let final = " ";
+    // let ultimo = 0;
+    let final = '';
     let nBinario = numero;
     let hasta = numero.toString().length;
-    for (let i = 0; i < hasta; i++) {
-        let ultimo = numero.slice(inicio, end);
+    for (let i = hasta - 1; i >= 0; i--) {
+        let ultimo = numero.slice(i, i + 1).toUpperCase();
         switch (ultimo) {
             case "0":
                 ultimo = "0000";
                 break;
             case "1":
+                ultimo = "0001";
+                break;
             case "2":
                 ultimo = "0010";
                 break;
@@ -387,6 +398,7 @@ function hexaBinario(numero) {
             case "4":
                 ultimo = "0100";
                 break;
+            case "5":
                 ultimo = "0101";
                 break;
             case "6":
@@ -395,6 +407,7 @@ function hexaBinario(numero) {
             case "7":
                 ultimo = "0111";
                 break;
+            case "8":
                 ultimo = "1000";
                 break;
             case "9":
@@ -418,16 +431,14 @@ function hexaBinario(numero) {
             case "F":
                 ultimo = "1111";
                 break;
-
-
-
         }
+        
         inicio--;
         end--;
         final = ultimo + final;
     }
-    final = parseInt(final);
     final = final.toString();
+
     console.log("El número Hexadecimal #" + nBinario + " pasado a Binario es ==>" + final);
     return final;
 
@@ -436,8 +447,7 @@ function hexaBinario(numero) {
 function hexaOctal(numero) {
     console.log(typeof numero)
     return binarioOctal(hexaBinario(numero));
-    //0110 1111 0101 
-    //resultado 3365
+ 
 }
 
 function hexaDecimal(numero) {

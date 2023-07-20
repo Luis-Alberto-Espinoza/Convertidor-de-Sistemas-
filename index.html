@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONVERTIDOR DE BASES</title>
-
-    <link rel="stylesheet" href="css/styleindex.css">
-    <script src="js.js"></script>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="./js/index.js"></script>
 </head>
 
 <body id="lienzo">
@@ -17,7 +17,7 @@
             <H1>CONVERTIDOR DE BASES</H1>
         </div>
         <div class="divEntrada" id="divEmtrada">
-            <p> Base de su número.</p>
+            <p> Seleccione la base de su número.</p>
             <select name="bases" id="bases" class="select" onchange="ocultar(this)">
                 <option value="0">ELIJA LA BASE</option>
                 <option value="1">BINARIO</option>
@@ -46,7 +46,7 @@
             </div>
 
             <div id="ocultarBtn">
-                <button class="btn" id="btnConvert" onclick=operaciones()>Convertir</button>
+                <button class="btn" id="btnConvert" onclick="operaciones()">Convertir</button>
                 <button class="btn" id="btnClear" onclick="limpiar()">Limpiar</button>
             </div>
         </div>
